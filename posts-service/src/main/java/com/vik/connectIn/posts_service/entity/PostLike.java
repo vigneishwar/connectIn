@@ -1,8 +1,10 @@
 package com.vik.connectIn.posts_service.entity;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -16,9 +18,12 @@ public class PostLike {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private Long postId;
 
+    @Column(nullable = false)
     private Long userId;
 
+    @CreationTimestamp
     private LocalDateTime createdAt;
 }
